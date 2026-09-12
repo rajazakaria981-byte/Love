@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لِكِ، بكل حب ♡</title>
+  <style>
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff5f8,#ffe4ed 45%,#fff);color:#5b3442;overflow-x:hidden}.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.heart{position:absolute;bottom:-30px;font-size:20px;opacity:.45;animation:float 8s linear infinite}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}main{position:relative;z-index:1;max-width:900px;margin:auto;padding:24px}.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center}.card{background:rgba(255,255,255,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,126,160,.2);box-shadow:0 18px 55px rgba(190,82,116,.13);border-radius:30px;padding:42px 24px;max-width:680px;width:100%}.badge{display:inline-block;background:#ffe0e9;color:#d94f78;border-radius:999px;padding:8px 16px;font-size:14px}.hero h1{font-size:clamp(38px,8vw,72px);margin:20px 0 12px;color:#d94f78}.hero p{font-size:19px;line-height:1.9;margin:0 auto 25px;max-width:540px}.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;background:#e85d87;color:white;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(232,93,135,.25)}.btn.secondary{background:white;color:#d94f78;border:1px solid #ffd0dc;box-shadow:none;margin-right:8px}.section{padding:70px 0}.section h2{text-align:center;color:#d94f78;font-size:32px;margin-bottom:30px}.message{font-size:18px;line-height:2;text-align:center}.memories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.memory{min-height:170px;border-radius:22px;background:linear-gradient(145deg,#fff,#ffe8ef);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px solid #ffd6e1}.memory strong{display:block;color:#d94f78;margin-bottom:8px}.footer{text-align:center;padding:45px 0;color:#9d6677}.music-note{font-size:13px;color:#a66a7c;margin-top:12px}@media(max-width:650px){main{padding:14px}.card{padding:32px 18px}.memories{grid-template-columns:1fr}.section{padding:45px 0}.hero p{font-size:17px}}
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <main>
+    <section class="hero">
+      <div class="card">
+        <span class="badge">♡ رسالة صغيرة لكِ</span>
+        <h1>إلى حبيبتي 🌷</h1>
+        <p>هذا المكان الصغير صنعته لكِ، لأنكِ شخص مميز بالنسبة لي. أتمنى أن تجعلك هذه الصفحة تبتسمين. ♡</p>
+        <button class="btn" onclick="document.getElementById('music').play();this.textContent='♫ الموسيقى تعمل'">♫ تشغيل الموسيقى</button>
+        <a class="btn secondary" href="#message">افتحي الرسالة ↓</a>
+        <div class="music-note">الموسيقى اختيارية — ضعي ملفك الصوتي باسم <b>music.mp3</b> بجانب هذا الملف.</div>
+        <audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
+      </div>
+    </section>
+
+    <section class="section" id="message">
+      <h2>رسالة لكِ 💗</h2>
+      <div class="card message">وجودك في حياتي شيء جميل، وأريد أن تبقى بيننا الكثير من الذكريات الحلوة واللحظات التي تجعلنا نبتسم. ✨<br><br>هذه مجرد بداية صغيرة لموقع خاص بكِ. 🌸</div>
+    </section>
+
+    <section class="section">
+      <h2>ذكرياتنا 🌸</h2>
+      <div class="memories">
+        <div class="memory"><div><strong>الذكرى الأولى</strong>اكتب هنا لحظة مميزة بينكما ♡</div></div>
+        <div class="memory"><div><strong>لحظة جميلة</strong>أضف صورة أو ذكرى هنا ✨</div></div>
+        <div class="memory"><div><strong>القادم أجمل</strong>مساحة لذكرى جديدة 🌷</div></div>
+      </div>
+    </section>
+
+    <div class="footer">صُنع بحب ♡ خصيصًا لكِ</div>
+  </main>
+  <script>
+    const box=document.getElementById('hearts');
+    const symbols=['♡','♥','🌸','✨'];
+    for(let i=0;i<24;i++){const h=document.createElement('span');h.className='heart';h.textContent=symbols[Math.floor(Math.random()*symbols.length)];h.style.left=Math.random()*100+'%';h.style.animationDelay=Math.random()*8+'s';h.style.animationDuration=(6+Math.random()*7)+'s';h.style.fontSize=(14+Math.random()*16)+'px';box.appendChild(h)}
+  </script>
+</body>
+</html>
