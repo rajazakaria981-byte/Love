@@ -1,49 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بيننا ♡</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Markazi+Text:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#edf2f0;--surface:#fff;--ink:#1e2a28;--muted:#7c8f8a;--a:#35708c;--b:#b8863b;--line:#dce5e2;--pink:#c65d7a;--pink-soft:#fff0f4}*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:radial-gradient(circle at top,#fff,#edf2f0 55%,#e5ece9);color:var(--ink);font-family:Tajawal,sans-serif;display:flex;justify-content:center}.app{width:100%;max-width:680px;min-height:100vh;padding:18px}.gate{min-height:calc(100vh - 36px);display:flex;align-items:center;justify-content:center}.panel{width:100%;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:28px;padding:34px 22px;box-shadow:0 20px 60px rgba(30,42,40,.08);text-align:center}.step{display:none;flex-direction:column;align-items:center;gap:18px}.step.active{display:flex}.logo{width:76px;height:76px;border-radius:24px;background:linear-gradient(135deg,#e4eef3,#f6eedd);display:grid;place-items:center;font-size:38px}h1{font-family:'Markazi Text',serif;font-size:2.7rem;margin:0}.sub{color:var(--muted);line-height:1.8;max-width:430px;margin:0}.input{width:100%;max-width:330px;padding:14px 16px;border:1.5px solid var(--line);border-radius:15px;outline:none;font:inherit;text-align:center;background:#fff}.input:focus{border-color:var(--a)}.btn{border:0;border-radius:15px;padding:13px 23px;background:var(--ink);color:#fff;font:500 1rem Tajawal;cursor:pointer;transition:.18s}.btn:hover{transform:translateY(-2px)}.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}.error{color:#c44b62;min-height:22px;font-size:.85rem}.choices{display:grid;gap:12px;width:100%;max-width:360px}.choice{padding:15px;border:1.5px solid var(--line);background:#fff;border-radius:16px;font:500 1rem Tajawal;cursor:pointer;text-align:right}.choice.a{border-color:var(--a)}.choice.b{border-color:var(--b)}.duration{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}.duration button{padding:10px 17px;border-radius:999px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer}.duration button.selected{background:var(--ink);color:#fff;border-color:var(--ink)}.game-box{width:100%;max-width:430px;padding:22px;border-radius:22px;background:linear-gradient(145deg,#fff,#f8fbfa);border:1px solid var(--line)}.game-number{font-size:2.4rem;font-weight:700;margin:8px}.game-result{min-height:28px;color:var(--muted)}.question-box{width:100%;max-width:450px;padding:25px;border-radius:24px;background:var(--pink-soft);border:1px solid #f2cbd6}.question{font-family:'Markazi Text',serif;font-size:2rem;margin:0 0 20px}.answers{display:flex;justify-content:center;align-items:center;gap:12px;min-height:110px;flex-wrap:wrap}.answer{border:0;border-radius:999px;padding:13px 25px;font:700 1rem Tajawal;cursor:pointer;transition:transform .25s,opacity .25s}.yes{background:var(--pink);color:#fff}.no{background:#fff;color:#555;border:1px solid #ddd}.question-result{min-height:25px;margin-top:12px;color:var(--muted)}#main{display:none;min-height:calc(100vh - 36px);flex-direction:column}.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 4px 14px}.title{font-family:'Markazi Text',serif;font-size:1.7rem;font-weight:700}.turn{padding:8px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.82rem}.thread{flex:1;min-height:300px;padding:15px 4px;display:flex;flex-direction:column;gap:10px;overflow-y:auto}.empty{text-align:center;color:var(--muted);margin:auto;line-height:1.8}.bubble{max-width:78%;padding:11px 15px;border-radius:17px;line-height:1.6;font-family:'Markazi Text',serif;font-size:1.05rem}.bubble.a{align-self:flex-start;background:#e4eef3;border-bottom-left-radius:5px}.bubble.b{align-self:flex-end;background:#f6eedd;border-bottom-right-radius:5px}.system{align-self:center;color:var(--muted);font-size:.75rem;background:rgba(0,0,0,.035);padding:6px 12px;border-radius:999px}.composer{border-top:1px solid var(--line);padding:12px 0}.banner{text-align:center;color:var(--muted);font-size:.84rem;margin-bottom:9px}.row{display:flex;gap:9px}.textarea{flex:1;resize:none;min-height:48px;max-height:120px;border:1.5px solid var(--line);border-radius:16px;padding:12px 14px;font:1rem Tajawal;outline:none}.send{border:0;border-radius:16px;padding:0 19px;color:#fff;font:500 1rem Tajawal;cursor:pointer}.send:disabled{opacity:.4;cursor:not-allowed}.footer{display:flex;justify-content:center;gap:16px;padding:7px 0;font-size:.72rem;color:var(--muted)}.footer span{text-decoration:underline;cursor:pointer}@media(max-width:520px){.panel{padding:28px 16px}h1{font-size:2.35rem}.bubble{max-width:88%}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لفريال، بكل حب ♡</title>
+  <style>
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fff5f8,#ffe4ed 45%,#fff);color:#5b3442;overflow-x:hidden}.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}.heart{position:absolute;bottom:-30px;font-size:20px;opacity:.45;animation:float 8s linear infinite}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}main{position:relative;z-index:1;max-width:900px;margin:auto;padding:24px}.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center}.card{background:rgba(255,255,255,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,126,160,.2);box-shadow:0 18px 55px rgba(190,82,116,.13);border-radius:30px;padding:42px 24px;max-width:680px;width:100%}.badge{display:inline-block;background:#ffe0e9;color:#d94f78;border-radius:999px;padding:8px 16px;font-size:14px}.hero h1{font-size:clamp(38px,8vw,72px);margin:20px 0 12px;color:#d94f78}.hero p{font-size:19px;line-height:1.9;margin:0 auto 25px;max-width:540px}.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:13px 22px;background:#e85d87;color:white;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(232,93,135,.25)}.btn.secondary{background:white;color:#d94f78;border:1px solid #ffd0dc;box-shadow:none;margin-right:8px}.section{padding:70px 0}.section h2{text-align:center;color:#d94f78;font-size:32px;margin-bottom:30px}.message{font-size:18px;line-height:2;text-align:center}.memories{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.memory{min-height:170px;border-radius:22px;background:linear-gradient(145deg,#fff,#ffe8ef);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1px solid #ffd6e1}.memory strong{display:block;color:#d94f78;margin-bottom:8px}.footer{text-align:center;padding:45px 0;color:#9d6677}.music-note{font-size:13px;color:#a66a7c;margin-top:12px}@media(max-width:650px){main{padding:14px}.card{padding:32px 18px}.memories{grid-template-columns:1fr}.section{padding:45px 0}.hero p{font-size:17px}}
+  </style>
 </head>
 <body>
-<div class="app">
-<div class="gate" id="gate"><div class="panel">
-<div class="step active" id="passwordStep"><div class="logo">🔐</div><h1>بيننا</h1><p class="sub">أدخل كلمة السر للمتابعة.</p><input id="password" class="input" type="password" placeholder="كلمة السر" autocomplete="off"><button class="btn" onclick="checkPassword()">دخول</button><div id="passwordError" class="error"></div></div>
-<div class="step" id="roleStep"><div class="logo">♡</div><h1>اختار طرفك</h1><p class="sub">كل طرف يختار دوره، وبعدها تبدأ المحادثة.</p><div class="choices"><button class="choice a" onclick="chooseRole('a')">🔵 أنا الطرف الأول</button><button class="choice b" onclick="chooseRole('b')">🟡 أنا الطرف التاني</button></div></div>
-<div class="step" id="durationStep"><h1 style="font-size:2.2rem">مدة الدور</h1><p class="sub">اختاروا الوقت الذي يبقى فيه الدور مع كل طرف.</p><div class="duration"><button data-min="2" onclick="selectDuration(2)">دقيقتين</button><button data-min="5" class="selected" onclick="selectDuration(5)">5 دقايق</button><button data-min="10" onclick="selectDuration(10)">10 دقايق</button></div><button class="btn" onclick="startChat()">ابدأ المحادثة</button></div>
-<div class="step" id="gameStep"><div class="logo">🎮</div><h1 style="font-size:2.2rem">لعبة صغيرة</h1><p class="sub">خمن الرقم من 1 إلى 5.</p><div class="game-box"><input id="guess" class="input" type="number" min="1" max="5" placeholder="1 - 5"><button class="btn" style="margin-top:12px" onclick="playGame()">خمن</button><div id="gameNumber" class="game-number">?</div><div id="gameResult" class="game-result"></div></div><button class="btn alt" onclick="showStep('questionStep')">التالي</button></div>
-<div class="step" id="questionStep"><div class="question-box"><p class="question">من متى تعرفني؟</p><input id="knowAnswer" class="input" placeholder="اكتب المدة هنا"><button class="btn" style="margin-top:12px" onclick="saveKnowAnswer()">حفظ</button><div id="knowResult" class="question-result"></div></div><button class="btn alt" onclick="showStep('loveStep')">التالي</button></div>
-<div class="step" id="loveStep"><div class="question-box"><p class="question">تحبني؟</p><div class="answers"><button id="noBtn1" class="answer no" onclick="shrinkNo(this)">لا 😶</button><button id="noBtn2" class="answer no" onclick="shrinkNo(this)">لا 🙃</button><button id="yesBtn" class="answer yes" onclick="growYes()">آه ❤️</button></div><div id="loveResult" class="question-result"></div></div><button class="btn" onclick="finishIntro()">دخول للمحادثة</button></div>
-</div></div>
-<div id="main"><div class="top"><span class="title">بيننا ♡</span><span class="turn" id="turnText">...</span><span class="footer" style="padding:0"><span onclick="backToGate()">خروج</span></span></div><div class="thread" id="thread"></div><div class="composer"><div class="banner" id="banner"></div><div class="row"><textarea id="msgInput" class="textarea" rows="1" placeholder="اكتب..."></textarea><button id="sendBtn" class="send" onclick="sendMessage()">إرسال</button></div></div><div class="footer"><span onclick="clearAll()">مسح كل المحادثة</span></div></div>
-</div>
-<script>
-const PASSWORD='1234';const STORAGE_KEY='turn-chat-v2';let role=null,selectedDuration=5,state=null,pollTimer=null,tickTimer=null;
-function showStep(id){document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
-function checkPassword(){const input=document.getElementById('password');if(input.value===PASSWORD){document.getElementById('passwordError').textContent='';showStep('roleStep')}else{document.getElementById('passwordError').textContent='كلمة السر غير صحيحة';input.value='';input.focus()}}
-document.getElementById('password').addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword()});
-function chooseRole(r){role=r;fetchState().then(existing=>{if(existing){state=existing;enterMain()}else showStep('durationStep')})}
-function selectDuration(min){selectedDuration=min;document.querySelectorAll('.duration button').forEach(b=>b.classList.toggle('selected',+b.dataset.min===min))}
-async function startChat(){state={messages:[],turn:role,turnStartedAt:Date.now(),turnDuration:selectedDuration*60000};await saveState();showStep('gameStep')}
-function playGame(){const n=Math.floor(Math.random()*5)+1;document.getElementById('gameNumber').textContent=n;const g=Number(document.getElementById('guess').value);document.getElementById('gameResult').textContent=g===n?'صح! 🎉':'مو هي 😄 الرقم كان '+n}
-function saveKnowAnswer(){const v=document.getElementById('knowAnswer').value.trim();document.getElementById('knowResult').textContent=v?'تم حفظ جوابك: '+v:'اكتب جواب أولاً.'}
-function shrinkNo(btn){btn.style.transform='scale(.72)';btn.style.opacity='.45';document.getElementById('loveResult').textContent='زر «لا» صغر 😄'}
-function growYes(){const b=document.getElementById('yesBtn');const current=parseFloat(b.dataset.scale||'1');const next=Math.min(current+.18,2.2);b.dataset.scale=next;b.style.transform='scale('+next+')';document.getElementById('loveResult').textContent='زر «آه» كبر ❤️'}
-function finishIntro(){enterMain()}
-async function fetchState(){try{if(!window.storage)return null;const res=await window.storage.get(STORAGE_KEY,true);return res&&res.value?JSON.parse(res.value):null}catch(e){return null}}
-async function saveState(){try{if(window.storage)await window.storage.set(STORAGE_KEY,JSON.stringify(state),true)}catch(e){console.error(e)}}
-function enterMain(){document.getElementById('gate').style.display='none';document.getElementById('main').style.display='flex';render();if(pollTimer)clearInterval(pollTimer);if(tickTimer)clearInterval(tickTimer);pollTimer=setInterval(syncState,2500);tickTimer=setInterval(tick,1000);const input=document.getElementById('msgInput');if(!input.dataset.ready){input.dataset.ready='1';input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,120)+'px'});input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage()}})}}
-function backToGate(){if(pollTimer)clearInterval(pollTimer);if(tickTimer)clearInterval(tickTimer);role=null;document.getElementById('main').style.display='none';document.getElementById('gate').style.display='flex';showStep('passwordStep')}
-async function syncState(){const fresh=await fetchState();if(fresh){state=fresh;maybeFlipTurn();render()}}
-function maybeFlipTurn(){if(!state)return;const elapsed=Date.now()-state.turnStartedAt;if(elapsed>=state.turnDuration){state.turn=state.turn==='a'?'b':'a';state.turnStartedAt=Date.now();state.messages.push({id:'sys-'+Date.now(),system:true,text:'انتهى الوقت — الآن دور '+(state.turn==='a'?'الطرف الأول':'الطرف التاني')});saveState()}}
-function tick(){if(!state)return;maybeFlipTurn();updateTurnUI()}
-function timeNow(){return new Date().toLocaleTimeString('ar',{hour:'2-digit',minute:'2-digit'})}
-async function sendMessage(){const input=document.getElementById('msgInput'),text=input.value.trim();if(!text||!state||state.turn!==role)return;state.messages.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),sender:role,text,at:timeNow()});input.value='';input.style.height='auto';render();await saveState()}
-async function clearAll(){if(!confirm('متأكدين إنكم بدكم تمسحوا كل المحادثة؟'))return;if(!state)return;state.messages=[];state.turn=role;state.turnStartedAt=Date.now();await saveState();render()}
-function updateTurnUI(){if(!state)return;const remaining=Math.max(0,state.turnDuration-(Date.now()-state.turnStartedAt));const mm=Math.floor(remaining/60000),ss=Math.floor(remaining%60000/1000).toString().padStart(2,'0');const mine=state.turn===role;document.getElementById('turnText').textContent=(state.turn==='a'?'دور الأول':'دور التاني')+' · '+mm+':'+ss;const banner=document.getElementById('banner'),input=document.getElementById('msgInput'),btn=document.getElementById('sendBtn');btn.style.background=state.turn==='a'?'var(--a)':'var(--b)';btn.disabled=!mine;input.disabled=!mine;input.placeholder=mine?'اكتب...':'استنى دورك...';banner.innerHTML=mine?'دورك تحكي — باقي <b>'+mm+':'+ss+'</b>':'استنى دورك — باقي <b>'+mm+':'+ss+'</b>'}
-function render(){if(!state)return;const thread=document.getElementById('thread');thread.innerHTML='';if(!state.messages.length)thread.innerHTML='<div class="empty">لسا ما في ولا رسالة.<br>'+(state.turn===role?'دورك تبدأ الحكي.':'استنى دورك.')+'</div>';else state.messages.forEach(m=>{if(m.system){const x=document.createElement('div');x.className='system';x.textContent=m.text;thread.appendChild(x)}else{const x=document.createElement('div');x.className='bubble '+m.sender;x.textContent=m.text;thread.appendChild(x)}});thread.scrollTop=thread.scrollHeight;updateTurnUI()}
-</script></body></html>
+  <div class="hearts" id="hearts"></div>
+  <main>
+    <section class="hero">
+      <div class="card">
+        <span class="badge">♡ رسالة صغيرة لفريال</span>
+        <h1>إلى فريال 🌷</h1>
+        <p>هذا المكان الصغير صنعته لكِ، لأنكِ شخص مميز بالنسبة لي. أتمنى أن تجعلك هذه الصفحة تبتسمين. ♡</p>
+        <button class="btn" onclick="document.getElementById('music').play();this.textContent='♫ الموسيقى تعمل'">♫ تشغيل الموسيقى</button>
+        <a class="btn secondary" href="#message">افتحي الرسالة ↓</a>
+        <div class="music-note">الموسيقى اختيارية — ضعي ملفك الصوتي باسم <b>music.mp3</b> بجانب هذا الملف.</div>
+        <audio id="music" loop><source src="music.mp3" type="audio/mpeg"></audio>
+      </div>
+    </section>
+    <section class="section" id="message">
+      <h2>رسالة لفريال 💗</h2>
+      <div class="card message">وجودك في حياتي شيء جميل، وأريد أن تبقى بيننا الكثير من الذكريات الحلوة واللحظات التي تجعلنا نبتسم. ✨<br><br>هذه مجرد بداية صغيرة لموقع خاص بكِ. 🌸</div>
+    </section>
+    <section class="section">
+      <h2>ذكرياتنا 🌸</h2>
+      <div class="memories">
+        <div class="memory"><div><strong>الذكرى الأولى</strong>اكتب هنا لحظة مميزة بينكما ♡</div></div>
+        <div class="memory"><div><strong>لحظة جميلة</strong>أضف صورة أو ذكرى هنا ✨</div></div>
+        <div class="memory"><div><strong>القادم أجمل</strong>مساحة لذكرى جديدة 🌷</div></div>
+      </div>
+    </section>
+    <div class="footer">صُنع بحب ♡ خصيصًا لفريال</div>
+  </main>
+  <script>
+    const box=document.getElementById('hearts');
+    const symbols=['♡','♥','🌸','✨'];
+    for(let i=0;i<24;i++){const h=document.createElement('span');h.className='heart';h.textContent=symbols[Math.floor(Math.random()*symbols.length)];h.style.left=Math.random()*100+'%';h.style.animationDelay=Math.random()*8+'s';h.style.animationDuration=(6+Math.random()*7)+'s';h.style.fontSize=(14+Math.random()*16)+'px';box.appendChild(h)}
+  </script>
+</body>
+</html>
