@@ -25,7 +25,7 @@ const KEY='sb_publishable_t35N3kbPtuj6JQS5TStRQA_BfokuT2m';
 const sb=window.supabase.createClient(URL,KEY);
 const SECONDS=60;
 const QUESTIONS=['واش أكثر ذكرى قريبة لقلبك؟','شنو أكثر حاجة كتندم عليها؟','شنو الشي لي دارك تبكي آخر مرة؟','شنو أول كذبة كذبتيها وتفكرتيها دابا؟','ممكن تكمل علاقتك مع شخص عارف أنه غادي يتركك نهار من الأيام؟','واش كاين شخص لحد دابا ما قدرتيش تنساه؟','شنو أكثر حاجة كتخبيها على أقرب صاحب ليك؟','واش عمرك حبيتي شخص من طرف واحد؟','شنو كتخاف منو بزاف ومكتقولوش لحد؟','شنو الحاجة لي الناس كيشوفوك فيها غالط؟','واش تفضل تبقى وحيد ولا تكون وسط ناس مزيفين؟','شنو الصفة لي فيك وكرهها فيك ناس؟','شنو أكثر ستوري شفتيه وضحكتي عليه بوحدك؟','واش عمرك بلوكيتي شي واحد بلا سبب؟','شنو آخر مساج مسحتيه من الواتساب؟'];
-let ch=null,connected=false,code='',me=0,round=0,q='',answers={1:null,2:null},deadline=0,timer=null,admin=false,modalTimer=null,finishing=false,closed=false;
+let ch=null,connected=false,code='',me=0,round=0,q='',answers={1:null,2:null},deadline=0,timer=null,admin=false,modalTimer=null,finishing=false,closed=false,connectTimeout=null;
 const $=id=>document.getElementById(id);
 function msg(x){$('status').textContent=x}
 function renderAnswers(){$('a1').textContent=answers[1]??'لم يجب بعد';$('a2').textContent=answers[2]??'لم يجب بعد';$('b1').textContent=answers[1]?'أجاب ✓':(me===1?'يجيب...':'ينتظر');$('b2').textContent=answers[2]?'أجاب ✓':(me===2?'يجيب...':'ينتظر')}
@@ -42,7 +42,8 @@ async function next(){if(me!==1||!connected||closed)return;const text=QUESTIONS[
 async function send(forced){if(!connected||!me||!q||answers[me]!==null||closed)return;let text=forced||$('answer').value.trim();if(!text)return;answers[me]=text;$('answer').value='';ui();await sendEvent('answer',{round,player:me,answer:text});if(both())finish()}
 function receiveAnswer(p){if(!p||Number(p.round)!==round||![1,2].includes(Number(p.player))||answers[p.player]!==null)return;answers[p.player]=String(p.answer??'');ui();if(both())finish()}
 function resetRound(){clearTimeout(modalTimer);$('notice').classList.remove('show');$('history').innerHTML='';finishing=false}
-function connect(c,creator){if(ch){sb.removeChannel(ch);ch=null}connected=false;code=c;me=creator?1:2;round=0;q='';answers={1:null,2:null};deadline=0;admin=false;closed=false;resetRound();$('room').value=c;$('game').style.display='block';ui();msg(creator?'إنشاء الغرفة '+c+'...':'الدخول إلى الغرفة '+c+'...');ch=sb.channel('love-'+c,{config:{broadcast:{ack:true}}});
+function connect(c,creator){if(connectTimeout)clearTimeout(connectTimeout);if(ch){sb.removeChannel(ch);ch=null}connected=false;code=c;me=creator?1:2;round=0;q='';answers={1:null,2:null};deadline=0;admin=false;closed=false;resetRound();$('room').value=c;$('game').style.display='block';ui();msg((creator?'إنشاء الغرفة ':'الدخول إلى الغرفة ')+c+'...');
+ch=sb.channel('love-'+c,{config:{private:false,broadcast:{ack:true,self:false}}});
 ch.on('broadcast',{event:'join'},async()=>{if(me===1){if(q)await sendEvent('state',state());else await next()}});
 ch.on('broadcast',{event:'stateRequest'},async()=>{if(me===1&&q)await sendEvent('state',state())});
 ch.on('broadcast',{event:'state'},({payload})=>{if(me!==2||!payload)return;if(payload.q){setQ(payload.q,payload.deadline,payload.round);answers={1:payload.answers?.[1]??null,2:payload.answers?.[2]??null};closed=!!payload.closed;ui();if(both())finish()}});
@@ -50,7 +51,8 @@ ch.on('broadcast',{event:'question'},({payload})=>{if(me===2&&payload&&Number(pa
 ch.on('broadcast',{event:'answer'},({payload})=>receiveAnswer(payload));
 ch.on('broadcast',{event:'time'},({payload})=>{if(payload&&Number(payload.round)===round){deadline=Number(payload.deadline);timerStart();ui()}});
 ch.on('broadcast',{event:'admin'},({payload})=>{if(!payload)return;if(payload.type==='newGame'||payload.type==='restart'){resetRound();if(me===1)next();else msg(payload.type==='newGame'?'بدأت لعبة جديدة 🎮':'تمت إعادة الجولة 🔄')}else if(payload.type==='skip'){if(me===1)next();else msg('تم تخطي السؤال ⏭️')}else if(payload.type==='close'){closed=true;clearInterval(timer);$('notice').classList.remove('show');ui();msg('تم إغلاق الغرفة ✖️')}else if(payload.type==='edit'&&payload.player===1){answers[1]=payload.answer;ui();if(both())finish()}});
-ch.subscribe(async(status,err)=>{if(status==='SUBSCRIBED'){connected=true;msg(creator?'تم إنشاء الغرفة: '+c+' — أرسل الكود للشخص الثاني 💗':'تم الدخول للغرفة: '+c+' 💗');ui();if(!creator)await sendEvent('join',{player:2})}else if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'){connected=false;console.error(status,err);msg('تعذر الاتصال بالغرفة. جرّب تحديث الصفحة ثم المحاولة مرة أخرى.');ui()}else{ui()}});
+ch.subscribe(async(status,err)=>{clearTimeout(connectTimeout);if(status==='SUBSCRIBED'){connected=true;msg(creator?'تم إنشاء الغرفة: '+c+' — أرسل الكود للشخص الثاني 💗':'تم الدخول للغرفة: '+c+' 💗');ui();if(!creator)await sendEvent('join',{player:2})}else if(status==='CHANNEL_ERROR'||status==='TIMED_OUT'){connected=false;console.error('Supabase Realtime:',status,err);let detail='تعذر الاتصال';if(status==='CHANNEL_ERROR')detail='Supabase رفض اتصال الغرفة';if(status==='TIMED_OUT')detail='انتهت مهلة الاتصال';msg(detail+' — افتح إعدادات Realtime في Supabase وتأكد أن Public access مفعّل.');ui()}else{ui()}});
+connectTimeout=setTimeout(()=>{if(!connected){msg('الاتصال بالغرفة لم يكتمل. إذا بقيت هكذا، المشكلة من Realtime في Supabase وليس من كود اللعبة.');ui()}},12000);
 }
 function makeCode(){return'LOVE-'+Math.random().toString(36).slice(2,8).toUpperCase()}
 $('create').onclick=()=>connect(makeCode(),true);
