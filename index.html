@@ -3,56 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>لفريال، بكل حب ♡</title>
+<title>أسئلة بين شخصين ♡</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffe0ed);color:#5b2340}.wrap{max-width:900px;margin:auto;padding:25px}.card{background:rgba(255,255,255,.8);border-radius:25px;padding:30px;margin:20px 0;box-shadow:0 10px 30px rgba(150,50,100,.12)}h1,h2{text-align:center}.hero{text-align:center;padding:60px 20px}.hero h1{font-size:42px}.hero p{font-size:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}.memory{background:#fff;padding:20px;border-radius:18px;text-align:center}.chatbox{margin-top:25px}.status{background:#fff1f7;padding:12px;border-radius:12px;margin-bottom:15px;text-align:center}.roomrow,.composer{display:flex;gap:8px;margin:10px 0}input{flex:1;border:2px solid #f3bfd3;border-radius:12px;padding:13px;font-size:15px;outline:none}.btn{border:0;border-radius:12px;padding:12px 18px;background:#e95b91;color:white;cursor:pointer;font-weight:bold}.btn:hover{opacity:.9}.secondary{background:#9e6680}.chatlog{height:320px;overflow-y:auto;background:#fff;border-radius:18px;padding:15px;border:1px solid #f2c8d8}.msg{background:#ffe3ef;padding:10px 14px;border-radius:15px;margin:8px 0;width:fit-content;max-width:80%}.mine{margin-right:auto;background:#f7c2d8}.small{color:#927080;text-align:center;font-size:13px}footer{text-align:center;padding:30px}@media(max-width:600px){.roomrow,.composer{flex-direction:column}.hero h1{font-size:32px}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Tahoma,sans-serif;background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffe0ed);color:#5b2340;min-height:100vh}
+.wrap{max-width:900px;margin:auto;padding:22px}
+.card{background:rgba(255,255,255,.86);border-radius:28px;padding:28px;margin:18px 0;box-shadow:0 12px 35px rgba(150,50,100,.13)}
+.hero{text-align:center;padding:45px 20px}.hero h1{font-size:40px;margin:10px}.hero p{font-size:17px}
+h2{text-align:center;margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.memory{background:#fff;padding:20px;border-radius:18px;text-align:center}
+.status{background:#fff1f7;padding:13px;border-radius:14px;text-align:center;margin:14px 0;font-weight:bold}
+.roomrow,.composer{display:flex;gap:8px;margin:10px 0}input{flex:1;border:2px solid #f3bfd3;border-radius:14px;padding:13px;font-size:15px;outline:none;background:#fff}.btn{border:0;border-radius:14px;padding:12px 18px;background:#e95b91;color:#fff;cursor:pointer;font-weight:bold}.btn:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#9e6680}
+.game{display:none}.players{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:15px 0}.player{padding:16px;border-radius:18px;text-align:center;background:#fff;border:2px solid transparent}.player.active{border-color:#e95b91;box-shadow:0 0 0 4px #ffe1ec}.badge{display:inline-block;margin-top:7px;padding:5px 10px;border-radius:99px;background:#ffe3ef;font-size:13px}
+.timerWrap{text-align:center;margin:18px 0}.timer{font-size:44px;font-weight:bold}.bar{height:10px;background:#f5d5e2;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:100%;background:#e95b91;transition:width 1s linear}
+.phase{text-align:center;font-size:19px;font-weight:bold;margin:15px 0}.question{background:#fff7fa;border:1px solid #f2c8d8;border-radius:20px;padding:22px;font-size:20px;text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center}.history{margin-top:18px;max-height:230px;overflow:auto}.qa{background:#fff;border-radius:16px;padding:13px;margin:9px 0}.qa b{color:#d64f86}.small{color:#927080;text-align:center;font-size:13px;margin-top:10px}
+@media(max-width:600px){.roomrow,.composer{flex-direction:column}.hero h1{font-size:31px}.players{grid-template-columns:1fr}.timer{font-size:38px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<section class="card hero"><h1>إلى فريال 🌷</h1><p>مكان صغير خاص بين شخصين ♡</p><p>شات حقيقي بين شخصين بدون مؤقت.</p></section>
-<section class="card"><h2>ذكرياتنا 🌸</h2><div class="grid"><div class="memory">🌷<br>ذكرى جميلة</div><div class="memory">💗<br>لحظة مميزة</div><div class="memory">✨<br>شيء لن ننساه</div></div></section>
-<section class="card chatbox">
-<h2>شاتنا 💗</h2>
-<div class="status" id="status">اضغط «إنشاء غرفة» ثم أرسل الكود للطرف الثاني.</div>
-<div class="roomrow"><button class="btn" id="createBtn">إنشاء غرفة</button><input id="room" placeholder="كود الغرفة" autocomplete="off"><button class="btn secondary" id="joinBtn">دخول</button></div>
-<div class="chatlog" id="chatlog"><div class="small">لا يوجد اتصال بعد.</div></div>
-<div class="composer"><input id="message" placeholder="اكتب رسالتك..." maxlength="500" disabled><button class="btn" id="send" disabled>إرسال</button></div>
+<section class="card hero">
+<h1>أسئلة بين شخصين ♡</h1>
+<p>كل واحد يسأل، والثاني يجاوب — وبوقت محدد لكل دور ⏱️</p>
 </section>
-<footer>♡ made with love ♡</footer>
+<section class="card">
+<h2>ابدأ اللعبة 💗</h2>
+<div class="status" id="status">أنشئ غرفة ثم أرسل الكود للشخص الثاني.</div>
+<div class="roomrow">
+<button class="btn" id="createBtn">إنشاء غرفة</button>
+<input id="room" placeholder="كود الغرفة" autocomplete="off">
+<button class="btn secondary" id="joinBtn">دخول</button>
+</div>
+<p class="small">كل دور = 30 ثانية للسؤال أو الإجابة.</p>
+</section>
+<section class="card game" id="game">
+<h2>الجولة الحالية 🌷</h2>
+<div class="players">
+<div class="player" id="p1"><b>اللاعب 1</b><div class="badge" id="p1badge">ينتظر</div></div>
+<div class="player" id="p2"><b>اللاعب 2</b><div class="badge" id="p2badge">ينتظر</div></div>
+</div>
+<div class="phase" id="phase">انتظر الطرف الآخر...</div>
+<div class="timerWrap"><div class="timer" id="timer">30</div><div class="bar"><i id="bar"></i></div></div>
+<div class="question" id="question">عندما تبدأ الجولة سيظهر السؤال هنا.</div>
+<div class="composer">
+<input id="answer" maxlength="300" placeholder="اكتب هنا..." disabled>
+<button class="btn" id="actionBtn" disabled>إرسال</button>
+</div>
+<div class="history" id="history"></div>
+<p class="small">بعد الإجابة ينتقل الدور تلقائيًا للطرف الثاني.</p>
+</section>
+<footer class="small">♡ made with love ♡</footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL="https://nagscmkjaluoiyvbnwcn.supabase.co";
 const SUPABASE_KEY="sb_publishable_t35N3kbPtuj6JQS5TStRQA_BfokuT2m";
 const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-let channel=null,currentRoom="";
-const statusEl=document.getElementById("status"),roomInput=document.getElementById("room"),messageInput=document.getElementById("message"),sendBtn=document.getElementById("send"),createBtn=document.getElementById("createBtn"),joinBtn=document.getElementById("joinBtn"),chatlog=document.getElementById("chatlog");
-function setStatus(text){statusEl.textContent=text}
-function addMessage(text,mine=false){if(chatlog.querySelector(".small"))chatlog.innerHTML="";const div=document.createElement("div");div.className="msg"+(mine?" mine":"");div.textContent=text;chatlog.appendChild(div);chatlog.scrollTop=chatlog.scrollHeight}
-function randomRoom(){const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let code="LOVE-";for(let i=0;i<6;i++)code+=chars[Math.floor(Math.random()*chars.length)];return code}
-async function connectRoom(room){
-if(channel){await supabaseClient.removeChannel(channel);channel=null}
-currentRoom=room;setStatus("جارٍ الاتصال بالغرفة...");messageInput.disabled=true;sendBtn.disabled=true;
-channel=supabaseClient.channel("love-room-"+room,{config:{broadcast:{ack:true}}});
-channel.on("broadcast",{event:"message"},({payload})=>{if(payload&&payload.text)addMessage(payload.text,false)});
-channel.subscribe((status,err)=>{
-if(status==="SUBSCRIBED"){
-setStatus("تم الاتصال 💗 يمكنكما الكتابة الآن.");messageInput.disabled=false;sendBtn.disabled=false;messageInput.focus();
-}else if(status==="CHANNEL_ERROR"){
-console.error("Supabase channel error:",err);setStatus("فشل الاتصال بـ Supabase Realtime.");
-}else if(status==="TIMED_OUT"){
-setStatus("انتهت مهلة الاتصال بـ Supabase.");
-}else if(status==="CLOSED"){
-setStatus("تم إغلاق اتصال الغرفة.");
-}
-});
-}
-createBtn.onclick=async function(){const room=randomRoom();roomInput.value=room;await connectRoom(room);};
-joinBtn.onclick=async function(){const room=roomInput.value.trim().toUpperCase();if(!room){setStatus("اكتب كود الغرفة أولًا.");return}await connectRoom(room)};
-async function sendMessage(){const text=messageInput.value.trim();if(!text||!channel)return;try{const result=await channel.send({type:"broadcast",event:"message",payload:{text:text}});if(result!=="ok"){setStatus("تعذر إرسال الرسالة.");return}addMessage(text,true);messageInput.value="";messageInput.focus()}catch(error){console.error(error);setStatus("تعذر إرسال الرسالة.")}}
-sendBtn.onclick=sendMessage;
-messageInput.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();sendMessage()}});
+let channel=null,roomCode="",player=0,phase="waiting",questionText="",timer=30,timerId=null,deadline=0;
+const $=id=>document.getElementById(id);
+function status(t){$('status').textContent=t}
+function randomRoom(){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='LOVE-';for(let i=0;i<6;i++)s+=c[Math.floor(Math.random()*c.length)];return s}
+function showGame(){ $('game').style.display='block'; $('game').scrollIntoView({behavior:'smooth'}); updateUI(); }
+function updatePlayers(active){$('p1').classList.toggle('active',active===1);$('p2').classList.toggle('active',active===2);$('p1badge').textContent=active===1?'دورك':'انتظر';$('p2badge').textContent=active===2?'دورك':'انتظر'}
+function startTimer(end){clearInterval(timerId);deadline=end;function tick(){timer=Math.max(0,Math.ceil((deadline-Date.now())/1000));$('timer').textContent=timer;$('bar').style.width=(timer/30*100)+'%';if(timer<=0){clearInterval(timerId);timeout()}}tick();timerId=setInterval(tick,250)}
+function setPhase(newPhase,q,end){phase=newPhase;questionText=q||'';$('question').textContent=q||'انتظر...';updateUI();if(end)startTimer(end);}
+function updateUI(){const myTurn=(phase==='ask'&&player===currentState.asker)||(phase==='answer'&&player!==currentState.asker);let label='انتظر الطرف الآخر...';let placeholder='انتظر دورك...';if(phase==='ask'){label=player===currentState.asker?'دورك: اكتب سؤالًا':'الطرف الآخر يكتب سؤالًا...';placeholder=player===currentState.asker?'اكتب السؤال...':'انتظر السؤال...'}else if(phase==='answer'){label=player!==currentState.asker?'دورك: جاوب على السؤال':'الطرف الآخر يجيب...';placeholder=player!==currentState.asker?'اكتب الإجابة...':'انتظر الإجابة...'}else if(phase==='waiting'){label='بانتظار اللاعب الثاني...'}$('phase').textContent=label;$('answer').disabled=!myTurn;$('actionBtn').disabled=!myTurn;$('answer').placeholder=placeholder;$('actionBtn').textContent=phase==='ask'?'إرسال السؤال':'إرسال الإجابة';}
+let currentState={asker:1};
+function addQA(q,a){const d=document.createElement('div');d.className='qa';d.innerHTML='<b>السؤال:</b> '+escapeHtml(q)+'<br><b>الإجابة:</b> '+escapeHtml(a);$('history').prepend(d)}
+function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+async function broadcast(event,payload){if(!channel)return;const r=await channel.send({type:'broadcast',event,payload});if(r&&r!== 'ok'&&r.error)console.error(r)}
+async function connectRoom(code,isCreator){
+if(channel)await supabaseClient.removeChannel(channel);roomCode=code;player=isCreator?1:2;channel=supabaseClient.channel('love-room-'+code,{config:{broadcast:{ack:true}}});
+channel.on('broadcast',{event:'state'},({payload})=>{if(payload){currentState=payload.state;phase=payload.phase;questionText=payload.question||'';setPhase(phase,questionText,payload.deadline||0)}});
+channel.on('broadcast',{event:'question'},({payload})=>{if(payload){currentState.asker=payload.asker;phase='answer';questionText=payload.question;setPhase('answer',payload.question,payload.deadline)}});
+channel.on('broadcast',{event:'answer'},({payload})=>{if(payload){addQA(payload.question,payload.answer);currentState.asker=payload.nextAsker;phase='ask';questionText='';const end=Date.now()+30000;setPhase('ask','اكتب سؤالك الآن ✨',end);if(player===1)broadcast('state',{state:currentState,phase:'ask',question:'اكتب سؤالك الآن ✨',deadline:end})}});
+channel.on('broadcast',{event:'timeout'},()=>{if(phase==='ask'&&player===currentState.asker){sendAction(true)}else if(phase==='answer'&&player!==currentState.asker){sendAction(true)}});
+channel.subscribe((s,err)=>{if(s==='SUBSCRIBED'){showGame();if(isCreator){currentState.asker=1;const end=Date.now()+30000;phase='ask';setPhase('ask','اكتب أول سؤال ✨',end);broadcast('state',{state:currentState,phase:'ask',question:'اكتب أول سؤال ✨',deadline:end});status('تم إنشاء الغرفة 💗 أرسل الكود: '+code)}else{status('تم الدخول 💗 انتظر بداية الجولة.');broadcast('join',{player:2})}}else if(s==='CHANNEL_ERROR'||s==='TIMED_OUT'){console.error(err);status('فشل الاتصال بالغرفة. حاول مرة أخرى.')}})}
+async function sendAction(isTimeout=false){const myTurn=(phase==='ask'&&player===currentState.asker)||(phase==='answer'&&player!==currentState.asker);if(!myTurn)return;const text=isTimeout?'انتهى الوقت ⏱️':$('answer').value.trim();if(!text&&!isTimeout)return;if(phase==='ask'){const end=Date.now()+30000;await broadcast('question',{asker:currentState.asker,question:text||'لم يُكتب سؤال.',deadline:end});phase='answer';questionText=text||'لم يُكتب سؤال.';setPhase('answer',questionText,end);$('answer').value='';}else{const next=currentState.asker===1?2:1;await broadcast('answer',{question:questionText,answer:text||'انتهى الوقت ⏱️',nextAsker:next});addQA(questionText,text||'انتهى الوقت ⏱️');currentState.asker=next;phase='ask';const end=Date.now()+30000;setPhase('ask',next===player?'اكتب سؤالك الآن ✨':'الطرف الآخر يكتب سؤالًا...',end);$('answer').value='';if(player===next)await broadcast('state',{state:currentState,phase:'ask',question:'اكتب سؤالك الآن ✨',deadline:end});}}
+function timeout(){sendAction(true)}
+$('createBtn').onclick=async()=>{const c=randomRoom();$('room').value=c;await connectRoom(c,true)};
+$('joinBtn').onclick=async()=>{const c=$('room').value.trim().toUpperCase();if(!c)return status('اكتب كود الغرفة أولًا.');await connectRoom(c,false)};
+$('actionBtn').onclick=()=>sendAction(false);$('answer').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();sendAction(false)}});
 </script>
 </body>
 </html>
